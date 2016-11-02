@@ -10,6 +10,8 @@ import UIKit
 
 class HamburgerMenuTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var menuTitleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

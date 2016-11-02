@@ -41,6 +41,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "hamburgerMenuCell", for: indexPath) as! HamburgerMenuTableViewCell
         
+        let titles = ["Profile", "Timeline"]
+        cell.menuTitleLabel.text = titles[indexPath.row]
+        
         return cell
     }
     
