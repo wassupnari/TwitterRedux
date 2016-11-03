@@ -31,11 +31,14 @@ class HamburgerViewController: UIViewController {
         let velocity = sender.velocity(in: view)
         
         if sender.state == UIGestureRecognizerState.began {
+            print("gesture begin")
             originalLeftMargin = leftMarginConstraint.constant
+        } else if sender.state == UIGestureRecognizerState.changed {
+            print("gesture changed")
+            leftMarginConstraint.constant = originalLeftMargin + translation.x
+        } else if sender.state == UIGestureRecognizerState.ended {
+            
         }
-//        else if sender.state == UIGestureRecognizer.didChange(view) {
-//            leftMarginConstraint.constant = originalLeftMargin + translation.x
-//        }
     }
 
     /*
