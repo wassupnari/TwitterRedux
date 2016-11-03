@@ -13,7 +13,9 @@ class HamburgerViewController: UIViewController {
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var contentView: UIView!
     
+    //@IBOutlet weak var leftMarginConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftMarginConstraint: NSLayoutConstraint!
+    
     var originalLeftMargin: CGFloat = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()

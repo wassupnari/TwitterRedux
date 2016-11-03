@@ -269,7 +269,7 @@
                     <navigationItem key="navigationItem" id="5cK-sd-Iet"/>
                     <connections>
                         <outlet property="contentView" destination="t1x-RE-RO4" id="4av-H2-Bxn"/>
-                        <outlet property="leftMarginConstraint" destination="Bpm-30-U6A" id="w89-Dl-Dd0"/>
+                        <outlet property="leftMarginConstraint" destination="wRX-Ay-gAu" id="fim-wG-YBR"/>
                         <outlet property="menuView" destination="4Bk-t9-gml" id="aZQ-Ld-hIU"/>
                     </connections>
                 </viewController>
