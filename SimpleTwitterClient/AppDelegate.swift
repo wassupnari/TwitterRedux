@@ -18,9 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // For persisting user session
         if User.currentUser != nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
+            let vc = storyboard.instantiateViewController(withIdentifier: "HamburgerNavigationController")
             
             window?.rootViewController = vc
         }
@@ -31,6 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             self.window?.rootViewController = vc
         }
+        
+        // For hamburger menu
+        let navViewController = window!.rootViewController as! UINavigationController
+        let hamburgerViewController = navViewController.topViewController as! HamburgerViewController
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+
+        menuViewController.hamburgerViewController = hamburgerViewController
+        hamburgerViewController.menuViewController = menuViewController
         
         return true
     }
