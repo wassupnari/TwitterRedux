@@ -25,6 +25,19 @@ class HamburgerViewController: UIViewController {
         }
     }
     
+    var contentViewController: UIViewController! {
+        didSet {
+            view.layoutIfNeeded()
+            
+            contentView.addSubview(contentViewController.view)
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.leftMarginConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

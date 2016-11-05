@@ -16,6 +16,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     private var timelineNavigationController: UIViewController!
     
     var viewControllers: [UIViewController] = []
+    
+    var hamburgerViewController: HamburgerViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +47,12 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.menuTitleLabel.text = titles[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        hamburgerViewController.contentViewController = viewControllers[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
