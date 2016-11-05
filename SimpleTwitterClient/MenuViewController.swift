@@ -33,6 +33,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         viewControllers.append(profileNavigationController)
         viewControllers.append(timelineNavigationController)
+        
+        hamburgerViewController.contentViewController = timelineNavigationController
     }
 
     override func didReceiveMemoryWarning() {
