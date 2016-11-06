@@ -78,7 +78,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VK4-m9-VwE" id="whJ-GX-DCy">
-                                            <frame key="frameInset" width="375" height="112.5"/>
+                                            <frame key="frameInset" width="375" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JPY-L5-VYV">
@@ -512,25 +512,6 @@
             </objects>
             <point key="canvasLocation" x="2609" y="975"/>
         </scene>
-        <!--Mention View Controller-->
-        <scene sceneID="fQY-mT-ZO2">
-            <objects>
-                <viewController id="mjB-BW-59j" customClass="MentionViewController" customModule="SimpleTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hbp-Jl-iVa"/>
-                        <viewControllerLayoutGuide type="bottom" id="nnb-bw-XIE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GBQ-bW-dby">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="KOX-Zl-Ead"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IBL-wB-qmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2609" y="1701"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="vMM-hy-p6D">
             <objects>
@@ -602,24 +583,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yc-OC-Ac0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3119" y="75"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="U1i-Ev-XMY">
-            <objects>
-                <navigationController storyboardIdentifier="MentionNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="7WS-Lk-qap" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p6Q-kt-hmH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="mjB-BW-59j" kind="relationship" relationship="rootViewController" id="NOI-qd-XOW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EmS-Uj-hRt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1668" y="1701"/>
         </scene>
     </scenes>
 </document>
