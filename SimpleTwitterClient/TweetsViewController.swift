@@ -14,6 +14,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     let alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: UIAlertControllerStyle.alert)
     let errorAlertController = UIAlertController(title: "Error", message: "An error occurred. Please try it again", preferredStyle: UIAlertControllerStyle.alert)
 
+    var mode: Bool = false
 
     var tweets = [Tweet]()
     override func viewDidLoad() {
@@ -53,6 +54,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func getTweets(fromRefresh: Bool, success: (() -> ())?, failure: ((Error) -> ())?) {
+        if self.mode {
         TwitterClient.sharedInstance?.homeTimeline(success: { (tweets: [Tweet]) in
             self.tweets = tweets
             self.tableView.reloadData()
@@ -65,6 +67,20 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 print("error: \(error.localizedDescription)")
         })
+        } else {
+            TwitterClient.sharedInstance?.mentions(success: { (tweets: [Tweet]) in
+                self.tweets = tweets
+                self.tableView.reloadData()
+                if fromRefresh {
+                    success!()
+                }
+                }, failure: { (error: Error?) in
+                    if fromRefresh {
+                        failure!(error!)
+                    }
+                    print("error: \(error?.localizedDescription)")
+            })
+        }
     }
     
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
