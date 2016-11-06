@@ -27,7 +27,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 170
+        tableView.estimatedRowHeight = 250
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         

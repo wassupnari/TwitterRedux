@@ -297,24 +297,27 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nNB-2t-TOx">
                                 <frame key="frameInset" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.73144302944851169" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hamburgerMenuCell" id="vTD-MB-7i2" customClass="HamburgerMenuTableViewCell" customModule="SimpleTwitterClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vTD-MB-7i2" id="bcd-ko-Xp0">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menu Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLX-kZ-i6P">
-                                                    <frame key="frameInset" minX="18" minY="11" width="105" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLX-kZ-i6P">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HLX-kZ-i6P" firstAttribute="leading" secondItem="bcd-ko-Xp0" secondAttribute="leading" constant="16" id="L35-Rl-pDy"/>
+                                                <constraint firstItem="HLX-kZ-i6P" firstAttribute="centerY" secondItem="bcd-ko-Xp0" secondAttribute="centerY" id="tVv-R6-WzQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.73144302940000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="menuTitleLabel" destination="HLX-kZ-i6P" id="fV0-rL-hjk"/>
                                         </connections>
