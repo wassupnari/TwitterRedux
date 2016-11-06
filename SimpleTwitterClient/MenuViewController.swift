@@ -14,6 +14,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     private var profileNavigationController: UIViewController!
     private var timelineNavigationController: UIViewController!
+    private var mentionNavigationController: UIViewController!
     
     var viewControllers: [UIViewController] = []
     
@@ -25,14 +26,18 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 250
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         profileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController")
         timelineNavigationController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
+        mentionNavigationController = storyboard.instantiateViewController(withIdentifier: "MentionNavigationController")
         
         viewControllers.append(profileNavigationController)
         viewControllers.append(timelineNavigationController)
+        viewControllers.append(mentionNavigationController)
         
         hamburgerViewController.contentViewController = timelineNavigationController
     }
@@ -45,7 +50,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "hamburgerMenuCell", for: indexPath) as! HamburgerMenuTableViewCell
         
-        let titles = ["Profile", "Timeline"]
+        let titles = ["Profile", "Timeline", "Mention"]
         cell.menuTitleLabel.text = titles[indexPath.row]
         
         return cell
@@ -58,8 +63,14 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 170.0;//Choose your custom row height
+    }
+
     
 
     /*
