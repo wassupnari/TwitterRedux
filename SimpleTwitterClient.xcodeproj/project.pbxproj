@@ -23,6 +23,7 @@
 		4D5E339C1DC9B4B0000102F1 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E339B1DC9B4B0000102F1 /* HamburgerViewController.swift */; };
 		4D6C85641DC80FEF00A6EDE2 /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6C85631DC80FEF00A6EDE2 /* ReplyViewController.swift */; };
 		4D7D978A1DCEED2E0041434E /* MentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D97891DCEED2E0041434E /* MentionViewController.swift */; };
+		4D7D978C1DCEF6920041434E /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D978B1DCEF6920041434E /* ProfileTableViewCell.swift */; };
 		4DAEC63F1DC6C0340074FFF1 /* NewTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEC63E1DC6C0340074FFF1 /* NewTweetViewController.swift */; };
 		4DAEC6411DC6D6740074FFF1 /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEC6401DC6D6740074FFF1 /* TweetDetailViewController.swift */; };
 		4DD141811DC69A9400E39747 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD141801DC69A9400E39747 /* TweetTableViewCell.swift */; };
@@ -49,6 +50,7 @@
 		4D5E339B1DC9B4B0000102F1 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		4D6C85631DC80FEF00A6EDE2 /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		4D7D97891DCEED2E0041434E /* MentionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionViewController.swift; sourceTree = "<group>"; };
+		4D7D978B1DCEF6920041434E /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		4DAEC63E1DC6C0340074FFF1 /* NewTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTweetViewController.swift; sourceTree = "<group>"; };
 		4DAEC6401DC6D6740074FFF1 /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
 		4DD141801DC69A9400E39747 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				4DD141801DC69A9400E39747 /* TweetTableViewCell.swift */,
 				4D5E33991DC9B2FD000102F1 /* HamburgerMenuTableViewCell.swift */,
+				4D7D978B1DCEF6920041434E /* ProfileTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				4D5E33981DC9AFF1000102F1 /* MenuViewController.swift in Sources */,
 				4D5E339A1DC9B2FD000102F1 /* HamburgerMenuTableViewCell.swift in Sources */,
 				4D0E2C171DC1D93E007B81F5 /* AppDelegate.swift in Sources */,
+				4D7D978C1DCEF6920041434E /* ProfileTableViewCell.swift in Sources */,
 				4DAEC63F1DC6C0340074FFF1 /* NewTweetViewController.swift in Sources */,
 				4DD141811DC69A9400E39747 /* TweetTableViewCell.swift in Sources */,
 				4DAEC6411DC6D6740074FFF1 /* TweetDetailViewController.swift in Sources */,
