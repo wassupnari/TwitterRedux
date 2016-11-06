@@ -151,4 +151,21 @@ class TwitterClient: BDBOAuth1SessionManager {
                 failure(error)
         })
     }
+    
+    func userTimeline(userId: Int, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
+        let params: NSDictionary = [
+            "count" : 50,
+            "user_id" : userId
+        ]
+        self.get("1.1/statuses/user_timeline.json", parameters: params, progress: nil, success: { (task:URLSessionDataTask, response:Any?) in
+            let dictionaries = response as! [NSDictionary]
+            
+            let tweets = Tweet.TweetsWithArray(dictionaries: dictionaries)
+            success(tweets)
+            }, failure: { (task:URLSessionDataTask?, error: Error) in
+                print("error: \(error.localizedDescription)")
+                failure(error)
+        })
+        
+    }
 }
