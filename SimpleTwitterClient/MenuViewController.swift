@@ -66,6 +66,12 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return 3
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 170.0;//Choose your custom row height
+    }
+
+    
 
     /*
     // MARK: - Navigation
