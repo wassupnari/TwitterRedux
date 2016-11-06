@@ -35,6 +35,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         timelineNavigationController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
         mentionNavigationController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
         
+        
         viewControllers.append(profileNavigationController)
         viewControllers.append(timelineNavigationController)
         viewControllers.append(mentionNavigationController)
@@ -59,6 +60,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        if indexPath.row == 1 {
+            ((viewControllers[indexPath.row] as! UINavigationController).topViewController as! TweetsViewController).setIsTimeline(isTimeLine: true)
+        } else if indexPath.row == 2 {
+            ((viewControllers[indexPath.row] as! UINavigationController).topViewController as! TweetsViewController).setIsTimeline(isTimeLine: false)
+        }
         hamburgerViewController.contentViewController = viewControllers[indexPath.row]
         
     }

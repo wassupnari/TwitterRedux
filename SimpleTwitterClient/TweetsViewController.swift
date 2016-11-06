@@ -14,7 +14,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     let alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: UIAlertControllerStyle.alert)
     let errorAlertController = UIAlertController(title: "Error", message: "An error occurred. Please try it again", preferredStyle: UIAlertControllerStyle.alert)
 
-    var mode: Bool = false
+    var isTimeLine: Bool = true
 
     var tweets = [Tweet]()
     override func viewDidLoad() {
@@ -54,7 +54,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func getTweets(fromRefresh: Bool, success: (() -> ())?, failure: ((Error) -> ())?) {
-        if self.mode {
+        if self.isTimeLine {
         TwitterClient.sharedInstance?.homeTimeline(success: { (tweets: [Tweet]) in
             self.tweets = tweets
             self.tableView.reloadData()
@@ -109,6 +109,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 detailViewController.tweet = tweets[indexPath.row]
             }
         }
+    }
+    
+    public func setIsTimeline(isTimeLine: Bool) {
+        self.isTimeLine = isTimeLine
+        
+        getTweets(fromRefresh: false, success: nil, failure: nil)
     }
 
     /*
