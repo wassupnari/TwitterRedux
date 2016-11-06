@@ -40,6 +40,17 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func mentions(success: @escaping ([Tweet]) -> (), failure: @escaping (Error?) -> ()) {
+        get("/1.1/statuses/mentions_timeline.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            let dictionaries = response as! [NSDictionary]
+            
+            let tweets = Tweet.TweetsWithArray(dictionaries: dictionaries)
+            success(tweets)
+            }, failure: { (task: URLSessionDataTask?, error: Error) in
+                failure(error)
+        })
+    }
+    
     func login(success: @escaping () -> (), failure: @escaping (Error) -> ()) {
         loginSuccess = success
         loginFailure = failure
@@ -114,7 +125,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             }, failure: { (task:URLSessionDataTask?, error:Error) in
                 print("error: \(error.localizedDescription)")
                 failure(error)
-        });
+        })
     }
     
     func retweet(tweetId: Int, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
@@ -126,7 +137,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             }, failure: { (task:URLSessionDataTask?, error:Error) in
                 print("error: \(error.localizedDescription)")
                 failure(error)
-        });
+        })
     }
     
     func favorite(tweetId: Int, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
@@ -138,6 +149,6 @@ class TwitterClient: BDBOAuth1SessionManager {
             }, failure: { (task:URLSessionDataTask?, error:Error) in
                 print("error: \(error.localizedDescription)")
                 failure(error)
-        });
+        })
     }
 }
