@@ -126,6 +126,14 @@
                                                 <constraint firstItem="iRe-iT-rWn" firstAttribute="leading" secondItem="WB0-46-OAg" secondAttribute="leading" id="vp3-cP-wBy"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="numOfFollowers" destination="CSF-JX-m3V" id="V2x-8q-ZM1"/>
+                                            <outlet property="numOfFollowing" destination="fjz-bL-qVp" id="a4H-e6-lKf"/>
+                                            <outlet property="userBackgroundImage" destination="iRe-iT-rWn" id="7mg-0W-1dH"/>
+                                            <outlet property="userHandle" destination="dLG-pZ-SDz" id="qlv-NU-oC3"/>
+                                            <outlet property="userName" destination="dLn-3V-yCd" id="XgB-iN-sP5"/>
+                                            <outlet property="userProfileImage" destination="5Cg-zA-1B9" id="0UJ-Kd-SbW"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileTweetCell" id="2ZL-dE-jDr" customClass="ProfileTableViewCell" customModule="SimpleTwitterClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="344" width="375" height="44"/>
