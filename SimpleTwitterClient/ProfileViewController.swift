@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 250
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
