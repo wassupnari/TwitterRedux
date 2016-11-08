@@ -44,7 +44,7 @@
         <!--Profile View Controller-->
         <scene sceneID="KJ8-pr-ZWZ">
             <objects>
-                <viewController id="Ihg-ax-l6u" customClass="ProfileViewController" customModule="SimpleTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ihg-ax-l6u" customClass="ProfileViewController" customModule="SimpleTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VfB-45-SAV"/>
                         <viewControllerLayoutGuide type="bottom" id="Jj0-YD-VPe"/>

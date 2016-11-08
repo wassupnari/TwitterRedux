@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var tweets = [Tweet]()
     var user: User?
+    var fromTimeline: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 250
         
-        user = User.currentUser
+        if !fromTimeline {
+            user = User.currentUser
+        }
         
         loadTimeline()
     }
@@ -38,15 +41,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderCell", for: indexPath) as! ProfileHeaderCell
             cell.user = self.user
-            print("return header cell")
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTweetCell", for: indexPath) as! ProfileTableViewCell
-            
             cell.tweet = tweets[indexPath.row]
-            
-            print("return tweet cell")
-        
             return cell
         }
     }
@@ -67,6 +65,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func onCloseClicked(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func loadTimeline() {

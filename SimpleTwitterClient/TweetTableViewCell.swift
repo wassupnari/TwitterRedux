@@ -48,6 +48,7 @@ class TweetTableViewCell: UITableViewCell {
         
         self.profileImage.layer.cornerRadius = 5
         self.profileImage.clipsToBounds = true;
+        self.profileImage.isUserInteractionEnabled = true
         
         let profileImageGesture = UITapGestureRecognizer(target: self, action: #selector(onProfileImageClicked(_:)))
 //        profileImageGesture.delegate = self
@@ -62,25 +63,8 @@ class TweetTableViewCell: UITableViewCell {
     }
     
     func onProfileImageClicked(_ sender: UITapGestureRecognizer) {
-        print("profile clicked")
+        print("profile clicked - \(tweet.user?.name)")
         self.tweetTableViewCellDelegate?.onProfileClicked(tweetCell: self, didTapProfile: tweet.user!)
-        
-//        let point = sender.location(in: self.contentView)
-//        if sender.state == .began {
-//        } else if sender.state == .changed {
-//        } else if sender.state == .ended {
-//            if (point.x < 100) {
-//                print("profile image clicked")
-//                if let delegate = self.tweetTableViewCellDelegate {
-//                    delegate.onProfileClicked(user: tweet.user!)
-//                }
-//            } else {
-//                print("container clicked")
-//                if let delegate = self.tweetTableViewCellDelegate {
-//                    delegate.onContainerClicked(tweet: tweet!)
-//                }
-//            }
-//        }
     }
 }
 

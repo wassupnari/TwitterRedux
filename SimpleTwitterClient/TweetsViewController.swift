@@ -139,17 +139,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         profileViewController.user = user
+        profileViewController.fromTimeline = true
         self.navigationController?.pushViewController(profileViewController, animated: true)
-//        //let navigationViewController = segue.destination as! UINavigationController
-//        let detailViewController = navigationViewController.viewControllers[0] as! TweetDetailViewController
-//        
-//
-//        print("tweet name : \(tweet.user?.name)")
-//        // do the work here
-//        detailViewController.tweet = tweet
         
         
-        //self.performSegue(withIdentifier: "tweetDetailSegue", sender: tweet)
+        //self.performSegue(withIdentifier: "ProfileViewController", sender: user)
     }
 
     /*
