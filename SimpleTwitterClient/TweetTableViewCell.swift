@@ -63,7 +63,7 @@ class TweetTableViewCell: UITableViewCell {
     
     func onProfileImageClicked(sender: UITapGestureRecognizer) {
         print("profile clicked")
-        self.tweetTableViewCellDelegate?.onContainerClicked(tweetCell: self, didTapProfile: tweet.user!)
+        self.tweetTableViewCellDelegate?.onProfileClicked(tweetCell: self, didTapProfile: tweet.user!)
         
 //        let point = sender.location(in: self.contentView)
 //        if sender.state == .began {
@@ -71,9 +71,9 @@ class TweetTableViewCell: UITableViewCell {
 //        } else if sender.state == .ended {
 //            if (point.x < 100) {
 //                print("profile image clicked")
-                if let delegate = self.tweetTableViewCellDelegate {
-                    delegate.onProfileClicked(user: tweet.user!)
-                }
+//                if let delegate = self.tweetTableViewCellDelegate {
+//                    delegate.onProfileClicked(user: tweet.user!)
+//                }
 //            } else {
 //                print("container clicked")
 //                if let delegate = self.tweetTableViewCellDelegate {
@@ -85,8 +85,8 @@ class TweetTableViewCell: UITableViewCell {
 }
 
 protocol TweetTableViewCellDelegate {
-    func onProfileClicked(user: User)
-    func onContainerClicked(tweetCell: TweetTableViewCell, didTapProfile user: User)
+    func onContainerClicked(user: User)
+    func onProfileClicked(tweetCell: TweetTableViewCell, didTapProfile user: User)
 }
 
 extension Date {

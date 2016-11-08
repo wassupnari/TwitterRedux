@@ -129,12 +129,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         getTweets(fromRefresh: false, success: nil, failure: nil)
     }
     
-    func onProfileClicked(user: User) {
+    func onContainerClicked(user: User) {
         print("Callback in tweetsViewController")
         self.performSegue(withIdentifier: "tweetProfileSegue", sender: user)
     }
     
-    func onContainerClicked(tweetCell: TweetTableViewCell, didTapProfile user: User) {
+    func onProfileClicked(tweetCell: TweetTableViewCell, didTapProfile user: User) {
         print("container callback")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
