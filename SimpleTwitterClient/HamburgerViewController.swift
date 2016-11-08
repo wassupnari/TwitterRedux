@@ -50,6 +50,13 @@ class HamburgerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        let navController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController") as! UINavigationController
+        
+        menuViewController.hamburgerViewController = self
+        self.contentViewController = navController
+        self.menuViewController = menuViewController
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,10 +69,8 @@ class HamburgerViewController: UIViewController {
         let velocity = sender.velocity(in: view)
         
         if sender.state == UIGestureRecognizerState.began {
-            print("gesture begin")
             originalLeftMargin = leftMarginConstraint.constant
         } else if sender.state == UIGestureRecognizerState.changed {
-            print("gesture changed")
             leftMarginConstraint.constant = originalLeftMargin + translation.x
         } else if sender.state == UIGestureRecognizerState.ended {
             

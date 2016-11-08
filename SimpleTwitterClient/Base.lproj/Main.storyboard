@@ -228,7 +228,7 @@
         <!--Home-->
         <scene sceneID="95Q-wY-Ele">
             <objects>
-                <viewController id="IxV-O0-pvf" customClass="TweetsViewController" customModule="SimpleTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" id="IxV-O0-pvf" customClass="TweetsViewController" customModule="SimpleTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ncc-9z-fxL"/>
                         <viewControllerLayoutGuide type="bottom" id="DZ2-jp-sz6"/>
@@ -401,7 +401,7 @@
         <!--Hamburger View Controller-->
         <scene sceneID="MOR-iy-xhP">
             <objects>
-                <viewController id="rMP-Tw-sOb" customClass="HamburgerViewController" customModule="SimpleTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HamburgerViewController" id="rMP-Tw-sOb" customClass="HamburgerViewController" customModule="SimpleTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xef-OA-tRY"/>
                         <viewControllerLayoutGuide type="bottom" id="Gdv-bO-yBP"/>
