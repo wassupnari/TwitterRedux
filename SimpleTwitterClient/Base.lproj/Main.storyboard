@@ -104,17 +104,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TWEETS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHC-UU-lVT">
-                                                    <frame key="frameInset" minX="288" minY="191" width="60" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TWEETS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHC-UU-lVT">
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.47177683246073299" green="0.47177683246073299" blue="0.47177683246073299" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QE8-5U-5Ug">
-                                                    <frame key="frameInset" minX="252" minY="192" width="28" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QE8-5U-5Ug">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -132,10 +128,14 @@
                                                 <constraint firstItem="5Cg-zA-1B9" firstAttribute="top" secondItem="WB0-46-OAg" secondAttribute="topMargin" constant="71" id="czA-Jx-eyP"/>
                                                 <constraint firstAttribute="trailing" secondItem="iRe-iT-rWn" secondAttribute="trailing" id="dRx-rJ-lSD"/>
                                                 <constraint firstItem="dLG-pZ-SDz" firstAttribute="leading" secondItem="WB0-46-OAg" secondAttribute="leading" constant="20" id="fWC-8H-z9z"/>
+                                                <constraint firstAttribute="trailing" secondItem="OHC-UU-lVT" secondAttribute="trailing" constant="16" id="fkX-gF-Ggm"/>
                                                 <constraint firstItem="5Cg-zA-1B9" firstAttribute="leading" secondItem="WB0-46-OAg" secondAttribute="leadingMargin" constant="16" id="hXw-5m-9jJ"/>
                                                 <constraint firstItem="iRe-iT-rWn" firstAttribute="top" secondItem="WB0-46-OAg" secondAttribute="top" id="ki9-Nv-VxL"/>
                                                 <constraint firstItem="fjz-bL-qVp" firstAttribute="top" secondItem="dLG-pZ-SDz" secondAttribute="bottom" constant="8" id="nER-z9-JdW"/>
                                                 <constraint firstItem="HhA-hn-Ehg" firstAttribute="leading" secondItem="fjz-bL-qVp" secondAttribute="trailing" constant="4" id="nVt-8x-UvM"/>
+                                                <constraint firstItem="OHC-UU-lVT" firstAttribute="centerY" secondItem="dLG-pZ-SDz" secondAttribute="centerY" id="o2q-Iw-Aec"/>
+                                                <constraint firstItem="OHC-UU-lVT" firstAttribute="leading" secondItem="QE8-5U-5Ug" secondAttribute="trailing" constant="4" id="quq-5a-5qf"/>
+                                                <constraint firstItem="QE8-5U-5Ug" firstAttribute="centerY" secondItem="OHC-UU-lVT" secondAttribute="centerY" id="u6S-Mw-sjC"/>
                                                 <constraint firstItem="dLn-3V-yCd" firstAttribute="leading" secondItem="WB0-46-OAg" secondAttribute="leading" constant="20" id="vIO-NV-qE8"/>
                                                 <constraint firstItem="iRe-iT-rWn" firstAttribute="leading" secondItem="WB0-46-OAg" secondAttribute="leading" id="vp3-cP-wBy"/>
                                             </constraints>
@@ -143,6 +143,7 @@
                                         <connections>
                                             <outlet property="numOfFollowers" destination="CSF-JX-m3V" id="V2x-8q-ZM1"/>
                                             <outlet property="numOfFollowing" destination="fjz-bL-qVp" id="a4H-e6-lKf"/>
+                                            <outlet property="numOfTweets" destination="QE8-5U-5Ug" id="jdf-ut-6Pj"/>
                                             <outlet property="userBackgroundImage" destination="iRe-iT-rWn" id="7mg-0W-1dH"/>
                                             <outlet property="userHandle" destination="dLG-pZ-SDz" id="qlv-NU-oC3"/>
                                             <outlet property="userName" destination="dLn-3V-yCd" id="XgB-iN-sP5"/>
@@ -446,7 +447,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1642" y="90"/>
+            <point key="canvasLocation" x="-2127" y="74"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="tV1-pH-Lz4">

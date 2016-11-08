@@ -16,6 +16,7 @@ class ProfileHeaderCell: UITableViewCell {
     @IBOutlet weak var userHandle: UILabel!
     @IBOutlet weak var numOfFollowing: UILabel!
     @IBOutlet weak var numOfFollowers: UILabel!
+    @IBOutlet weak var numOfTweets: UILabel!
     
     var user: User? {
         didSet {
@@ -36,6 +37,7 @@ class ProfileHeaderCell: UITableViewCell {
                 
                 self.numOfFollowing.text = String(user.numOfFollowing)
                 self.numOfFollowers.text = String(user.numOfFollowers)
+                self.numOfTweets.text = String(user.tweetCount!)
                 
             }
         }
