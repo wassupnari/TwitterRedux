@@ -1,6 +1,6 @@
 # Project 4 - *Twitter Redux*
 
-Time spent: **X** hours spent in total
+Time spent: **12** hours spent in total
 
 ## User Stories
 
@@ -35,8 +35,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-  1.
-  2.
+  1. How other people implemented the profile picture click event separate from the cell click event
+  2. Pager view on profile page
 
 
 ## Video Walkthrough
@@ -49,7 +49,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+- It took almost 3 hours to figure out the profile picture click event. For some reason, my gesture event callback method didn't invoke until I programatically set `self.profileImage.isUserInteractionEnabled = true`
 
 ## License
 
