@@ -21,6 +21,7 @@ class User: NSObject {
     var numOfFollowers: Int = 0
     var tagline: String?
     var dictionary: NSDictionary?
+    var tweetCount: Int?
 
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
@@ -40,6 +41,7 @@ class User: NSObject {
         tagline = dictionary["description"] as? String
         numOfFollowers = (dictionary["followers_count"] as? Int)!
         numOfFollowing = (dictionary["friends_count"] as? Int)!
+        tweetCount = dictionary["statuses_count"] as? Int
     }
     
     static var _currentUser: User?
