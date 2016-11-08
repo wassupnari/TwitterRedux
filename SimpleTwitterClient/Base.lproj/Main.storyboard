@@ -736,9 +736,9 @@
         <!--Navigation Controller-->
         <scene sceneID="rp7-KG-rPd">
             <objects>
-                <navigationController storyboardIdentifier="HamburgerNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3Ru-4Y-QoG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HamburgerNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3Ru-4Y-QoG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8JA-t5-1eJ">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="8JA-t5-1eJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
