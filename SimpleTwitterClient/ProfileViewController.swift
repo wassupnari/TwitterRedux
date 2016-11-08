@@ -63,6 +63,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         return 2
     }
     
+    @IBAction func onCloseClicked(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
 //    {
 //        return 170.0;//Choose your custom row height

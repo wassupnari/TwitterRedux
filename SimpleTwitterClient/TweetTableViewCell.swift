@@ -16,6 +16,8 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var timeStamp: UILabel!
     @IBOutlet weak var tweetBody: UILabel!
     
+    var tweetTableViewCellDelegate: TweetTableViewCellDelegate?
+    
     var tweet: Tweet! {
         didSet {
             
@@ -41,6 +43,16 @@ class TweetTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        print("awake from nib")
+        
+        self.profileImage.layer.cornerRadius = 5
+        self.profileImage.clipsToBounds = true;
+        
+        let profileImageGesture = UITapGestureRecognizer(target: self, action: #selector(onProfileImageClicked(sender:)))
+        profileImageGesture.delegate = self
+        profileImageGesture.numberOfTapsRequired = 1
+        self.contentView.addGestureRecognizer(profileImageGesture)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -48,7 +60,32 @@ class TweetTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func onProfileImageClicked(sender: UITapGestureRecognizer) {
+        print("profile clicked")
+        
+        let point = sender.location(in: self.contentView)
+        if sender.state == .began {
+        } else if sender.state == .changed {
+        } else if sender.state == .ended {
+            if (point.x < 100) {
+                print("profile image clicked")
+                if let delegate = self.tweetTableViewCellDelegate {
+                    delegate.onProfileClicked(user: tweet.user!)
+                }
+            } else {
+                print("container clicked")
+                if let delegate = self.tweetTableViewCellDelegate {
+                    delegate.onContainerClicked(tweet: tweet!)
+                }
+            }
+        }
+    }
+}
 
+protocol TweetTableViewCellDelegate {
+    func onProfileClicked(user: User)
+    func onContainerClicked(tweet: Tweet)
 }
 
 extension Date {

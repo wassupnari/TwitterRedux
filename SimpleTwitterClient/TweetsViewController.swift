@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TweetTableViewCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     let alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: UIAlertControllerStyle.alert)
@@ -17,6 +17,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var isTimeLine: Bool = true
 
     var tweets = [Tweet]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +47,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetTableViewCell
         cell.tweet = tweets[indexPath.row]
+        cell.tweetTableViewCellDelegate = self
         return cell
     }
     
@@ -83,6 +85,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        //self.performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+    }
+    
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         
         self.present(alertController, animated: false, completion: nil)
@@ -109,12 +116,38 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 detailViewController.tweet = tweets[indexPath.row]
             }
         }
+        
+//        if segue.identifier == "tweetProfileSegue" {
+//            let profileViewController = segue.destination as! ProfileViewController
+//            profileViewController.user = sender as! User
+//        }
     }
     
     public func setIsTimeline(isTimeLine: Bool) {
         self.isTimeLine = isTimeLine
         
         getTweets(fromRefresh: false, success: nil, failure: nil)
+    }
+    
+    func onProfileClicked(user: User) {
+        print("Callback in tweetsViewController")
+        self.performSegue(withIdentifier: "tweetProfileSegue", sender: user)
+    }
+    
+    func onContainerClicked(tweet: Tweet) {
+        print("container callback")
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let navigationViewController = storyboard.instantiateViewController(withIdentifier: "TweetDetailNavigationController") as! UINavigationController
+//        //let navigationViewController = segue.destination as! UINavigationController
+//        let detailViewController = navigationViewController.viewControllers[0] as! TweetDetailViewController
+//        
+//
+//        print("tweet name : \(tweet.user?.name)")
+//        // do the work here
+//        detailViewController.tweet = tweet
+        
+        
+        self.performSegue(withIdentifier: "tweetDetailSegue", sender: tweet)
     }
 
     /*
