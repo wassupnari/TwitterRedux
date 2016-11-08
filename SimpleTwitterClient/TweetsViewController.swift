@@ -134,10 +134,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         self.performSegue(withIdentifier: "tweetProfileSegue", sender: user)
     }
     
-    func onContainerClicked(tweet: Tweet) {
+    func onContainerClicked(tweetCell: TweetTableViewCell, didTapProfile user: User) {
         print("container callback")
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let navigationViewController = storyboard.instantiateViewController(withIdentifier: "TweetDetailNavigationController") as! UINavigationController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        profileViewController.user = user
+        self.navigationController?.pushViewController(profileViewController, animated: true)
 //        //let navigationViewController = segue.destination as! UINavigationController
 //        let detailViewController = navigationViewController.viewControllers[0] as! TweetDetailViewController
 //        
@@ -147,7 +149,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 //        detailViewController.tweet = tweet
         
         
-        self.performSegue(withIdentifier: "tweetDetailSegue", sender: tweet)
+        //self.performSegue(withIdentifier: "tweetDetailSegue", sender: tweet)
     }
 
     /*

@@ -50,9 +50,9 @@ class TweetTableViewCell: UITableViewCell {
         self.profileImage.clipsToBounds = true;
         
         let profileImageGesture = UITapGestureRecognizer(target: self, action: #selector(onProfileImageClicked(sender:)))
-        profileImageGesture.delegate = self
-        profileImageGesture.numberOfTapsRequired = 1
-        self.contentView.addGestureRecognizer(profileImageGesture)
+//        profileImageGesture.delegate = self
+//        profileImageGesture.numberOfTapsRequired = 1
+        self.profileImage.addGestureRecognizer(profileImageGesture)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -63,29 +63,30 @@ class TweetTableViewCell: UITableViewCell {
     
     func onProfileImageClicked(sender: UITapGestureRecognizer) {
         print("profile clicked")
+        self.tweetTableViewCellDelegate?.onContainerClicked(tweetCell: self, didTapProfile: tweet.user!)
         
-        let point = sender.location(in: self.contentView)
-        if sender.state == .began {
-        } else if sender.state == .changed {
-        } else if sender.state == .ended {
-            if (point.x < 100) {
-                print("profile image clicked")
+//        let point = sender.location(in: self.contentView)
+//        if sender.state == .began {
+//        } else if sender.state == .changed {
+//        } else if sender.state == .ended {
+//            if (point.x < 100) {
+//                print("profile image clicked")
                 if let delegate = self.tweetTableViewCellDelegate {
                     delegate.onProfileClicked(user: tweet.user!)
                 }
-            } else {
-                print("container clicked")
-                if let delegate = self.tweetTableViewCellDelegate {
-                    delegate.onContainerClicked(tweet: tweet!)
-                }
-            }
-        }
+//            } else {
+//                print("container clicked")
+//                if let delegate = self.tweetTableViewCellDelegate {
+//                    delegate.onContainerClicked(tweet: tweet!)
+//                }
+//            }
+//        }
     }
 }
 
 protocol TweetTableViewCellDelegate {
     func onProfileClicked(user: User)
-    func onContainerClicked(tweet: Tweet)
+    func onContainerClicked(tweetCell: TweetTableViewCell, didTapProfile user: User)
 }
 
 extension Date {

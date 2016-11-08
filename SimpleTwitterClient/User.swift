@@ -12,6 +12,7 @@ class User: NSObject {
     
     static let userDidLogoutNotification = "UserDidLogout"
     
+    var id: Int?
     var name: String?
     var screenname: String?
     var profileUrl: URL?
@@ -24,6 +25,7 @@ class User: NSObject {
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
         
+        id = dictionary["id"] as? Int
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
         let profileUrlString = dictionary["profile_image_url_https"] as? String

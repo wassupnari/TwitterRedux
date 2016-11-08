@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         user = User.currentUser
         
-        
+        loadTimeline()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +42,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTweetCell", for: indexPath) as! ProfileTableViewCell
+            
+            cell.tweet = tweets[indexPath.row]
             
             print("return tweet cell")
         
@@ -65,6 +67,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func onCloseClicked(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func loadTimeline() {
+        if let user = self.user {
+            if let userId = user.id {
+                TwitterClient.sharedInstance?.userTimeline(userId: userId, success: { (tweets: [Tweet]) in
+                    self.tweets = tweets
+                    self.tableView.reloadData()
+                    }, failure: { (error: Error) in
+                        print("Error: \(error.localizedDescription)")
+                })
+            }
+        }
     }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
