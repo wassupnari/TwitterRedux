@@ -15,20 +15,25 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var userHandle: UILabel!
     @IBOutlet weak var tweetBody: UILabel!
     
-    var tweet: Tweet!
+    var tweet: Tweet?
     var tweetId: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tweetId = tweet.id
-        if let imageUrl = tweet.user?.profileUrl {
-            userImageView.setImageWith(imageUrl)
+        
+        print("name : \(tweet?.user?.name)")
+        if let tweet = tweet {
+            tweetId = tweet.id
+            if let imageUrl = tweet.user?.profileUrl {
+                userImageView.setImageWith(imageUrl)
+            }
+            userName.text = tweet.user?.name
+            userHandle.text = "@" + (tweet.user?.screenname)!
+            tweetBody.text = tweet.text
         }
-        userName.text = tweet.user?.name
-        userHandle.text = "@" + (tweet.user?.screenname)!
-        tweetBody.text = tweet.text
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,8 +72,8 @@ class TweetDetailViewController: UIViewController {
             let navigationViewController = segue.destination as! UINavigationController
             let targetController = navigationViewController.viewControllers[0] as! ReplyViewController
             
-            targetController.targetHandel = "@" + (tweet.user?.screenname)! + " "
-            targetController.tweetId = tweet.id
+            targetController.targetHandel = "@" + (tweet?.user?.screenname)! + " "
+            targetController.tweetId = tweet?.id
         }
     }
     

@@ -20,10 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // For persisting user session
         if User.currentUser != nil {
+
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "HamburgerNavigationController")
+            let hamburgerViewController = storyboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
+            let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+            let tweetsNavigationController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
             
-            window?.rootViewController = vc
+            
+            hamburgerViewController.menuViewController = menuViewController
+            hamburgerViewController.contentViewController = tweetsNavigationController
+            menuViewController.hamburgerViewController = hamburgerViewController
+            
+            window?.rootViewController = hamburgerViewController
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) { (notification: Notification) in
@@ -32,16 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             self.window?.rootViewController = vc
         }
-        
-        // For hamburger menu
-        let navViewController = window!.rootViewController as! UINavigationController
-        let hamburgerViewController = navViewController.topViewController as! HamburgerViewController
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
-
-        menuViewController.hamburgerViewController = hamburgerViewController
-        hamburgerViewController.menuViewController = menuViewController
         
         return true
     }

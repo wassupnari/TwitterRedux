@@ -64,7 +64,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             ((viewControllers[indexPath.row] as! UINavigationController).topViewController as! TweetsViewController).setIsTimeline(isTimeLine: true)
         } else if indexPath.row == 2 {
             ((viewControllers[indexPath.row] as! UINavigationController).topViewController as! TweetsViewController).setIsTimeline(isTimeLine: false)
-        }
+        } 
         hamburgerViewController.contentViewController = viewControllers[indexPath.row]
         
     }
